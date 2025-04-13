@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MG⧊KΩ Portal</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    .pyramid-wrapper {
+      margin-top: 40px;
+      position: relative;
+      width: 220px;
+      height: 160px;
+    }
+
+    .pyramid {
+      width: 0;
+      height: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-bottom: 160px solid #3a3a3a;
+      position: relative;
+    }
+
+    .title-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      font-weight: bold;
+      color: #00ffe7;
+      text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
+    }
+
+    .syriac-button {
+      margin-top: 60px;
+      font-size: 42px;
+      background: #1c1c1c;
+      border: 4px double #888;
+      color: #fceabb;
+      padding: 16px 30px;
+      border-radius: 20px;
+      box-shadow: inset 0 0 15px #4a4a4a, 0 0 20px #000;
+      font-family: 'Estrangelo Edessa', 'Segoe UI Symbol', serif;
+      letter-spacing: 2px;
+      text-align: center;
+      width: 140px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .syriac-button:hover {
+      background: #333;
+      box-shadow: 0 0 25px #fceabb;
+      color: #fff5cc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pyramid-wrapper">
+    <div class="pyramid"></div>
+    <div class="title-text">MG⧊KΩ</div>
+  </div>
+
+  <div class="syriac-button">ܬܳܥ</div>
+
+</body>
+</html>
