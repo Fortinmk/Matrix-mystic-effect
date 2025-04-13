@@ -6,10 +6,10 @@
   <title>∆Ω-M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂.404</title>
   <style>
     body {
-      background: black;
-      color: #0f0;
       margin: 0;
+      background: black;
       font-family: monospace;
+      color: #0f0;
       overflow: hidden;
     }
 
@@ -19,7 +19,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: black;
       color: #0f0;
       font-size: 20px;
       white-space: nowrap;
@@ -29,28 +28,27 @@
 
     #logo-container {
       position: absolute;
-      top: 30px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
       text-align: center;
+      z-index: 10;
     }
 
     #logo {
-      font-size: 28px;
+      font-size: 24px;
       color: #9900ff;
-      text-shadow: 0 0 12px #9900ff;
+      text-shadow: 0 0 10px #9900ff;
       font-weight: bold;
     }
 
     #pyramid {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      margin-top: 40px;
-      transform-style: preserve-3d;
-      animation: rotate 12s linear infinite;
       position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 40px auto 20px;
+      transform-style: preserve-3d;
+      animation: rotate 10s linear infinite;
     }
 
     @keyframes rotate {
@@ -66,29 +64,26 @@
       position: absolute;
       width: 0;
       height: 0;
-      border-left: 75px solid transparent;
-      border-right: 75px solid transparent;
-      border-bottom: 150px solid #9900ff;
-      opacity: 0.8;
-      transform-origin: bottom center;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #9900ff;
+      opacity: 0.7;
     }
 
     #mystic-button {
-      margin-top: 30px;
-      padding: 20px 35px;
+      padding: 15px 30px;
       background: #00ff88;
       color: black;
-      font-size: 26px;
-      font-weight: bold;
+      font-size: 24px;
       border: none;
       cursor: pointer;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      box-shadow: 0 0 25px #00ff88;
+      box-shadow: 0 0 20px #00ff88;
       transition: transform 0.3s ease;
     }
 
     #mystic-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -106,7 +101,7 @@
   <script>
     const matrix = document.getElementById('matrix');
     const chars = "̶͍̳͈̦̮̭͌̐̒̅ͅM̷̢͝G̴̻̩͝K̷̢͝O̷͓͂∆Ω░▒▓█<>:/\\";
-    let columns = Math.floor(window.innerWidth / 20);
+    const columns = Math.floor(window.innerWidth / 20);
     let drops = Array(columns).fill(1);
 
     function drawMatrix() {
@@ -120,6 +115,7 @@
         drops[i] = (drops[i] + 1) % Math.floor(window.innerHeight / 20);
       }
     }
+
     setInterval(drawMatrix, 100);
   </script>
 </body>
