@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>∆Ω∞: Protocol-V01d707</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>∆Ω: Protocol-V01d707</title>
   <style>
     body {
       margin: 0;
@@ -37,7 +37,7 @@
   </style>
 </head>
 <body>
-  <h1>∆Ω∞: Protocol-V01d707</h1>
+  <h1>∆Ω: Protocol-V01d707</h1>
   <canvas id="mysticSymbols"></canvas>
 
   <script>
@@ -47,7 +47,7 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const symbols = ["∆", "Ω", "∞", "≡", "⟁", "𓂀", "⩲", "⌖", "⟟", "𒀱", "𒁏", "𒐫", "⚛", "𓋹", "⨀"];
+    const symbols = ["∆", "Ω", "≡", "≠", "≬", "✦", "⟁", "⩫", "⟆", "☼", "╬", "Ψ", "◊", "𓂀", "𓆣", "𐎁", "𐎔", "𐤀", "𐤋", "𒀭"];
     const particles = [];
 
     class SymbolParticle {
@@ -59,40 +59,46 @@
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 24 + 8;
-        this.speed = Math.random() * 0.5 + 0.2;
+        this.speed = (Math.random() * 0.5) + 0.2;
         this.alpha = Math.random() * 0.4 + 0.3;
         this.char = symbols[Math.floor(Math.random() * symbols.length)];
       }
 
       update() {
         this.y += this.speed;
-        if (this.y > canvas.height) this.reset();
+        if (this.y > canvas.height) {
+          this.reset();
+          this.y = 0;
+        }
       }
 
       draw() {
         ctx.globalAlpha = this.alpha;
-        ctx.font = `${this.size}px serif`;
-        ctx.fillStyle = '#7f00ff';
+        ctx.fillStyle = "#00ff99";
+        ctx.font = this.size + "px Courier New";
         ctx.fillText(this.char, this.x, this.y);
       }
     }
 
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 250; i++) {
       particles.push(new SymbolParticle());
     }
 
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
       particles.forEach(p => {
         p.update();
         p.draw();
       });
+
       requestAnimationFrame(animate);
     }
 
     animate();
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
