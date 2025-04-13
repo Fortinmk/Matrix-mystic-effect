@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MGKO ∇✦Ω</title>
   <style>
     body {
@@ -9,63 +10,85 @@
       padding: 0;
       overflow: hidden;
       background: black;
-      font-family: monospace;
+      font-family: 'Orbitron', monospace;
       color: #0f0;
-    }canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
+    }
 
-.title-container {
-  position: absolute;
-  top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 2;
-}
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
 
-.title-box {
-  padding: 20px 40px;
-  border: 3px double #0ff;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(3px);
-  color: #0ff;
-  font-size: 30px;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-  transform: rotateX(10deg) rotateZ(0deg);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
+    .logo-wrapper {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
 
-.ancient-button {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.05);
-  border: 3px solid #ccc;
-  border-radius: 12px;
-  padding: 16px 40px;
-  font-size: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  letter-spacing: 2px;
-  cursor: pointer;
-  z-index: 3;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cuneiform_script.svg/320px-Cuneiform_script.svg.png');
-  background-size: cover;
-  text-indent: -9999px;
-}
+    .pyramid {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(145deg, #FFD700, #B8860B);
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px gold;
+      animation: glow 4s infinite alternate;
+    }
 
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 30px #FFD700;
+      }
+      to {
+        box-shadow: 0 0 60px #FFA500;
+      }
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff8dc;
+      text-shadow: 0 0 10px gold, 0 0 20px #FFD700;
+      letter-spacing: 4px;
+    }
+
+    .suryoyo-button {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 36px;
+      font-family: 'Noto Sans Syriac', serif;
+      background: linear-gradient(145deg, #7a5900, #ffd700);
+      color: #fff;
+      padding: 20px 40px;
+      border: 4px solid #bfa03c;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+      text-shadow: 0 0 8px #fff;
+      clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%);
+      cursor: pointer;
+      z-index: 4;
+    }
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>  <div class="title-container">
-    <div class="title-box">MGKO ∇✦Ω</div>
-  </div><button class="ancient-button">ܬܐ</button>
+  <canvas id="matrix"></canvas>
+
+  <div class="logo-wrapper">
+    <div class="pyramid">
+      <div class="logo-text">MGKO</div>
+    </div>
+  </div>
+
+  <button class="suryoyo-button">ܬܐ</button>
 
   <script>
     const canvas = document.getElementById('matrix');
@@ -97,208 +120,6 @@
     }
 
     setInterval(draw, 70);
-  </script></body>
-</html>
-<div class="ancient-button-wrapper">
-  <button class="syriac-button">ܬܐ</button>
-</div>
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MGKO Portal</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      font-family: 'Orbitron', sans-serif;
-      color: white;
-      overflow: hidden;
-    }/* هندسة الشعار */
-.logo-wrapper {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.pyramid {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(145deg, #FFD700, #B8860B);
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 30px gold;
-  animation: glow 4s infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 30px #FFD700;
-  }
-  to {
-    box-shadow: 0 0 60px #FFA500;
-  }
-}
-
-.logo-text {
-  font-size: 28px;
-  font-weight: bold;
-  color: #fff8dc;
-  text-shadow: 0 0 10px gold, 0 0 20px #FFD700;
-  letter-spacing: 4px;
-}
-
-  </style>
-</head>
-<body>
-  <div class="logo-wrapper">
-    <div class="pyramid">
-      <div class="logo-text">MGKO</div>
-    </div>
-  </div>
+  </script>
 </body>
 </html>
-<div class="ancient-button-container">
-  <button class="suryoyo-button">
-    ܬܐ
-  </button>
-</div>
-
-<style>
-.ancient-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.suryoyo-button {
-  font-size: 36px;
-  font-family: 'Noto Sans Syriac', serif;
-  background: linear-gradient(145deg, #7a5900, #ffd700);
-  color: #fff;
-  padding: 20px 40px;
-  border: 4px solid #bfa03c;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
-  text-shadow: 0 0 8px #fff;
-  transform: rotate(-1deg);
-  clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%);
-  transition: all 0.3s ease;
-}
-
-.suryoyo-button:hover {
-  background: linear-gradient(145deg, #ffd700, #7a5900);
-  transform: rotate(0deg) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 1);
-}
-</style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂ Portal</title>
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(ellipse at center, #0a0a0f 0%, #000 100%);
-      color: white;
-      font-family: "Orbitron", sans-serif;
-      overflow: hidden;
-    }
-
-    .container {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .triangle {
-      width: 0;
-      height: 0;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 260px solid rgba(255, 0, 120, 0.25);
-      position: relative;
-      transform: rotate(180deg);
-      filter: drop-shadow(0 0 10px #c713f7);
-    }
-
-    .triangle::before {
-      content: "M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂";
-      position: absolute;
-      top: -180px;
-      left: -110px;
-      width: 220px;
-      text-align: center;
-      font-size: 24px;
-      color: gold;
-      letter-spacing: 2px;
-      text-shadow: 0 0 6px #ff009d, 0 0 12px #b600ff;
-    }
-
-    .mystic-symbols {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://i.imgur.com/kKyMuL3.png');
-      background-size: cover;
-      opacity: 0.05;
-      pointer-events: none;
-    }
-
-    .syriac-button {
-      margin-top: 40px;
-      padding: 14px 28px;
-      border: 2px solid rgba(255, 0, 128, 0.3);
-      border-radius: 10px;
-      background: rgba(0, 102, 255, 0.3);
-      color: white;
-      font-size: 24px;
-      font-family: 'Estrangelo Edessa', sans-serif;
-      text-shadow: 0 0 10px rgba(255, 60, 160, 0.8);
-      backdrop-filter: blur(6px);
-      cursor: pointer;
-    }
-
-    .syriac-button::before {
-      content: "ܬܳܥܶܐ"; /* كلمة تعال بالسريانية */
-    }
-  </style>
-</head>
-<body>
-  <div class="mystic-symbols"></div>
-  <div class="container">
-    <div class="triangle"></div>
-    <button class="syriac-button"></button>
-  </div>
-</body>
-</html>
-<div style="position: fixed; bottom: 40px; left: 40px; z-index: 999;">
-  <button style="
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 22px;
-    padding: 12px 24px;
-    color: #ffffff;
-    background: linear-gradient(135deg, rgba(0, 132, 255, 0.4), rgba(255, 0, 80, 0.4));
-    border: 2px solid rgba(0, 132, 255, 0.6);
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 18px rgba(0, 255, 255, 0.3);
-    text-shadow: 0 0 5px #00ccff;
-    cursor: pointer;
-  ">
-    ܬܐ
-  </button>
-</div>
