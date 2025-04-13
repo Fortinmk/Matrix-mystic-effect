@@ -1,108 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MGKO ∆ΣΞ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MGKO ∇✦Ω</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      background: black;
       overflow: hidden;
-      height: 100%;
-      font-family: 'Courier New', monospace;
-    }
+      background: black;
+      font-family: monospace;
+      color: #0f0;
+    }canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+.title-container {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
 
-    .title-container {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
+.title-box {
+  padding: 20px 40px;
+  border: 3px double #0ff;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  color: #0ff;
+  font-size: 30px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  transform: rotateX(10deg) rotateZ(0deg);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
 
-    .title-shape {
-      padding: 20px 40px;
-      background: radial-gradient(circle at center, #222, #000);
-      border: 4px solid rgba(0, 255, 255, 0.6);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4);
-      clip-path: polygon(
-        30% 0%, 70% 0%, 100% 30%, 100% 70%,
-        70% 100%, 30% 100%, 0% 70%, 0% 30%
-      );
-      animation: pulse 3s infinite ease-in-out;
-    }
+.ancient-button {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  cursor: pointer;
+  z-index: 3;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cuneiform_script.svg/320px-Cuneiform_script.svg.png');
+  background-size: cover;
+  text-indent: -9999px;
+}
 
-    .title-shape h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #00ffff;
-      text-shadow: 0 0 8px #00faff, 0 0 16px #007a7a;
-      letter-spacing: 4px;
-      text-align: center;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(0,255,255,0.9), 0 0 60px rgba(0,255,255,0.7);
-      }
-    }
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
-
-  <div class="title-container">
-    <div class="title-shape">
-      <h1>MGKO ∆ΣΞ</h1>
-    </div>
-  </div>
+  <canvas id="matrix"></canvas>  <div class="title-container">
+    <div class="title-box">MGKO ∇✦Ω</div>
+  </div><button class="ancient-button">ܬܐ</button>
 
   <script>
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 
-    const chars = '𓂀 ☥ Ψ ∆ ∇ ⊗ Ω ∴ ⌘ ✴ ⟁ ⧫ ⟁ ⊚ 𐎀 𐎚 𐎓'.split('');
-    const fontSize = 16;
+    const symbols = 'ᚠᛃᛟᛞᚣᚾᚨᚱᛉᛒᛁᛇ᛬ᚷᚺᛇ☉☍☌☊⚚⇞⇶✠✶✷'.split('');
+    const fontSize = 14;
     const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }).fill(1);
+    const drops = Array(Math.floor(columns)).fill(1);
 
     function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#00ffcc';
+      ctx.fillStyle = '#0f0';
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+        const text = symbols[Math.floor(Math.random() * symbols.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
         drops[i]++;
       }
     }
 
-    setInterval(draw, 50);
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-</body>
+    setInterval(draw, 70);
+  </script></body>
 </html>
