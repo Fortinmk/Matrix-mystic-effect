@@ -1,133 +1,126 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>∆Ω-Unit.404</title>
+  <title>∆Ω-M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂.404</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
       background: black;
-      font-family: 'Orbitron', monospace;
       color: #0f0;
-    }canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
+      margin: 0;
+      font-family: monospace;
+      overflow: hidden;
+    }
 
-.logo-wrapper {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  perspective: 1000px;
-}
+    .matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: #0f0;
+      font-size: 20px;
+      white-space: nowrap;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-.pyramid-3d {
-  width: 150px;
-  height: 150px;
-  transform-style: preserve-3d;
-  animation: rotate 12s linear infinite;
-  position: relative;
-}
+    #logo-container {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+    }
 
-.pyramid-face {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 75px solid transparent;
-  border-right: 75px solid transparent;
-  border-bottom: 130px solid rgba(186, 85, 211, 0.3);
-  transform-origin: bottom center;
-}
+    #logo {
+      font-size: 28px;
+      color: #9900ff;
+      text-shadow: 0 0 12px #9900ff;
+      font-weight: bold;
+    }
 
-.face1 { transform: rotateY(0deg) translateZ(75px); }
-.face2 { transform: rotateY(120deg) translateZ(75px); }
-.face3 { transform: rotateY(240deg) translateZ(75px); }
+    #pyramid {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 40px;
+      transform-style: preserve-3d;
+      animation: rotate 12s linear infinite;
+      position: relative;
+    }
 
-.logo-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff8dc;
-  text-shadow: 0 0 10px violet, 0 0 20px purple;
-  letter-spacing: 4px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-
-.suryoyo-button {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 36px;
-  font-family: 'Noto Sans Syriac', serif;
-  background: linear-gradient(145deg, #7a5900, #ffd700);
-  color: #fff;
-  padding: 20px 40px;
-  border: 4px solid #bfa03c;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
-  text-shadow: 0 0 8px #fff;
-  clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%);
-  cursor: pointer;
-  z-index: 4;
-}
-
-  </style>
-</head>
-<body>
-  <canvas id="matrix"></canvas>  <div class="logo-wrapper">
-    <div class="pyramid-3d">
-      <div class="pyramid-face face1"></div>
-      <div class="pyramid-face face2"></div>
-      <div class="pyramid-face face3"></div>
-      <div class="logo-text">M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂</div>
-    </div>
-  </div><button class="suryoyo-button">ܬܐ</button>
-
-  <script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const symbols = 'ᚠᛃᛟᛞᚣᚾᚨᚱᛉᛒᛁᛇ᛬ᚷᚺᛇ☉☍☌☊⚚⇞⇶✠✶✷'.split('');
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#0f0';
-      ctx.font = fontSize + 'px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = symbols[Math.floor(Math.random() * symbols.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg) rotateX(0deg);
+      }
+      to {
+        transform: rotateY(360deg) rotateX(360deg);
       }
     }
 
-    setInterval(draw, 70);
-  </script></body>
+    .pyramid-face {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 75px solid transparent;
+      border-right: 75px solid transparent;
+      border-bottom: 150px solid #9900ff;
+      opacity: 0.8;
+      transform-origin: bottom center;
+    }
+
+    #mystic-button {
+      margin-top: 30px;
+      padding: 20px 35px;
+      background: #00ff88;
+      color: black;
+      font-size: 26px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      box-shadow: 0 0 25px #00ff88;
+      transition: transform 0.3s ease;
+    }
+
+    #mystic-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix" id="matrix"></div>
+
+  <div id="logo-container">
+    <div id="logo">∆Ω-M̷͙͓̓G̷̢͝K̴̻̩͝0̷͓͂.404</div>
+    <div id="pyramid">
+      <div class="pyramid-face"></div>
+    </div>
+    <button id="mystic-button">ܬܐ</button>
+  </div>
+
+  <script>
+    const matrix = document.getElementById('matrix');
+    const chars = "̶͍̳͈̦̮̭͌̐̒̅ͅM̷̢͝G̴̻̩͝K̷̢͝O̷͓͂∆Ω░▒▓█<>:/\\";
+    let columns = Math.floor(window.innerWidth / 20);
+    let drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      let output = '';
+      for (let i = 0; i < drops.length; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        output += char + ' ';
+      }
+      matrix.innerText = output;
+      for (let i = 0; i < drops.length; i++) {
+        drops[i] = (drops[i] + 1) % Math.floor(window.innerHeight / 20);
+      }
+    }
+    setInterval(drawMatrix, 100);
+  </script>
+</body>
 </html>
