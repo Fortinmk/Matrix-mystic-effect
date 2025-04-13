@@ -1,88 +1,108 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MGKO ∆ΣΞ - Portal Cipher</title>
+  <meta charset="UTF-8">
+  <title>MGKO ∆ΣΞ</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      background: black;
       overflow: hidden;
-      background: radial-gradient(circle at center, #000000 40%, #030303 100%);
-      font-family: 'Courier New', Courier, monospace;
-    }canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
+      height: 100%;
+      font-family: 'Courier New', monospace;
+    }
 
-.mystic-symbols {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-conic-gradient(rgba(255,255,255,0.02) 0deg, rgba(255,255,255,0.02) 5deg, transparent 5deg, transparent 10deg);
-  z-index: 0;
-  animation: rotateBg 120s linear infinite;
-}
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
 
-@keyframes rotateBg {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    .title-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
 
-.title {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 48px;
-  background: linear-gradient(45deg, #ff0044, #9900ff, #00ffcc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255,0,200,0.6);
-  font-weight: bold;
-  z-index: 2;
-  letter-spacing: 4px;
-}
+    .title-shape {
+      padding: 20px 40px;
+      background: radial-gradient(circle at center, #222, #000);
+      border: 4px solid rgba(0, 255, 255, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4);
+      clip-path: polygon(
+        30% 0%, 70% 0%, 100% 30%, 100% 70%,
+        70% 100%, 30% 100%, 0% 70%, 0% 30%
+      );
+      animation: pulse 3s infinite ease-in-out;
+    }
 
+    .title-shape h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00faff, 0 0 16px #007a7a;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(0,255,255,0.9), 0 0 60px rgba(0,255,255,0.7);
+      }
+    }
   </style>
 </head>
 <body>
-  <canvas id="matrixCanvas"></canvas>
-  <div class="mystic-symbols"></div>
-  <div class="title">MGKO ∆ΣΞ</div>  <script>
-    const canvas = document.getElementById('matrixCanvas');
+  <canvas id="matrix"></canvas>
+
+  <div class="title-container">
+    <div class="title-shape">
+      <h1>MGKO ∆ΣΞ</h1>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
-
-    canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    const symbols = '01ΔΞΩΨϞѬ₪⚚☥⌘⇝⇶⇋⌬✶⌖✧';
+    const chars = '𓂀 ☥ Ψ ∆ ∇ ⊗ Ω ∴ ⌘ ✴ ⟁ ⧫ ⟁ ⊚ 𐎀 𐎚 𐎓'.split('');
     const fontSize = 16;
     const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }, () => Math.random() * canvas.height);
+    const drops = Array.from({ length: columns }).fill(1);
 
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#00ff9f';
+      ctx.fillStyle = '#00ffcc';
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
-        const text = symbols.charAt(Math.floor(Math.random() * symbols.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
           drops[i] = 0;
         }
-
         drops[i]++;
       }
     }
 
-    setInterval(drawMatrix, 60);
-  </script></body>
+    setInterval(draw, 50);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
 </html>
