@@ -102,3 +102,99 @@
 <div class="ancient-button-wrapper">
   <button class="syriac-button">ܬܐ</button>
 </div>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MGKO Portal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+      overflow: hidden;
+    }/* هندسة الشعار */
+.logo-wrapper {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.pyramid {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(145deg, #FFD700, #B8860B);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px gold;
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 30px #FFD700;
+  }
+  to {
+    box-shadow: 0 0 60px #FFA500;
+  }
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff8dc;
+  text-shadow: 0 0 10px gold, 0 0 20px #FFD700;
+  letter-spacing: 4px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="logo-wrapper">
+    <div class="pyramid">
+      <div class="logo-text">MGKO</div>
+    </div>
+  </div>
+</body>
+</html>
+<div class="ancient-button-container">
+  <button class="suryoyo-button">
+    ܬܐ
+  </button>
+</div>
+
+<style>
+.ancient-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.suryoyo-button {
+  font-size: 36px;
+  font-family: 'Noto Sans Syriac', serif;
+  background: linear-gradient(145deg, #7a5900, #ffd700);
+  color: #fff;
+  padding: 20px 40px;
+  border: 4px solid #bfa03c;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+  text-shadow: 0 0 8px #fff;
+  transform: rotate(-1deg);
+  clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%);
+  transition: all 0.3s ease;
+}
+
+.suryoyo-button:hover {
+  background: linear-gradient(145deg, #ffd700, #7a5900);
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 1);
+}
+</style>
